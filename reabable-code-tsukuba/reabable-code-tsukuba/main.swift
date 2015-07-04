@@ -11,15 +11,24 @@ import Foundation
 func main() {
 
     //TODO: input your file path
-    let yourFilePath = "/recipe-data.txt"
+    let yourFilePath = "recipe-data.txt"
 
-    let contentOfFile = fileOpenWithPath(yourFilePath)
-    println(contentOfFile)
+    let contentsOfFile = fileOpenWithPath(yourFilePath)
+    let recipesArray = splitLine(contentsOfFile)
+
+    for recipe in recipesArray {
+        println(recipe)
+    }
+
 }
 
 func fileOpenWithPath(path: String) -> String {
     let textData = String(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: nil)
     return textData ?? "error"
+}
+
+func splitLine(str: String) -> [String] {
+    return split(str) { contains("\n", $0) }
 }
 
 main()

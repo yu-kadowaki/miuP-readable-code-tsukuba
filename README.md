@@ -1,5 +1,5 @@
 # リーダブルコード勉強会 in 筑波
 
 ## 仕様
-- main.swift内のyourFilePathにファイルパスを指定するとそのファイルの内容をprintする
+- main.swift内のyourFilePathにファイルパスを指定するとそのファイルに書かれた内容を行ごとに出力する
 - 取得できない場合はerrorの文字列を返す
