@@ -8,4 +8,18 @@
 
 import Foundation
 
-println("オムライス")
+func main() {
+
+    //TODO: input your file path
+    let yourFilePath = "/recipe-data.txt"
+
+    let contentOfFile = fileOpenWithPath(yourFilePath)
+    println(contentOfFile)
+}
+
+func fileOpenWithPath(path: String) -> String {
+    let textData = String(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: nil)
+    return textData ?? "error"
+}
+
+main()

@@ -25,6 +25,7 @@
 /* Begin PBXFileReference section */
 		498066171B4772D100A0E272 /* reabable-code-tsukuba */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "reabable-code-tsukuba"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4980661A1B4772D100A0E272 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		498066211B47767600A0E272 /* recipe-data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "recipe-data.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				4980661A1B4772D100A0E272 /* main.swift */,
+				498066211B47767600A0E272 /* recipe-data.txt */,
 			);
 			path = "reabable-code-tsukuba";
 			sourceTree = "<group>";
