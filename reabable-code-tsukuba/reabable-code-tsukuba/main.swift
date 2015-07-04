@@ -17,27 +17,40 @@ func main() {
     let recipesArray = splitLine(contentsOfFile)
     let recipesDict = makeRecipesDicWithRecipesArray(recipesArray)
 
-//    let input = getIntByStdIn()
-//    if input == 0 {
-//        for (var i = 1; i <= count(recipesDict); i++) {
-//            println("\(i): " + recipesDict[i]!)
-//        }
-//    } else {
-//        println(recipesDict[input] ?? "Not Found")
-//    }
-    
-    for (i, recipe) in enumerate(recipesArray) {
-        println("\(i + 1): \(recipe)")
+    let input = getIntByStdIn()
+    if input == 0 {
+        for (var i = 1; i <= count(recipesDict); i++) {
+            println("\(i): " + recipesDict[i]!)
+        }
+    } else {
+        println(recipesDict[input] ?? "Not Found")
     }
+    
+    // これは仕様7のやつ
+//    for (i, recipe) in enumerate(recipesArray) {
+//        println("\(i + 1): \(recipe)")
+//    }
+}
+
+func getUserByStdIn(input: NSFileHandle) -> String {
+    let userStr = NSString(data: input.availableData, encoding: NSUTF8StringEncoding)
+    let userStrScanner = NSScanner(string: userStr! as String)
+    let user = userStrScanner.string
+    
+    return user
 }
 
 func getIntByStdIn() -> Int {
     let input = NSFileHandle.fileHandleWithStandardInput()
     let str = NSString(data: input.availableData, encoding: NSUTF8StringEncoding)
     let scanner = NSScanner(string: str! as String)
+    
+    // ユーザー名の取得
+    let user = getUserByStdIn(input)
+    println("ユーザー名: \(user)")
+    
     var value: Int = 0
     let result = scanner.scanInteger(&value)
-    println("input = \(result)")
     return value
 }
 
