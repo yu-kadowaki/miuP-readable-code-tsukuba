@@ -8,7 +8,7 @@
 
 import Foundation
 
-let userCount = 4
+let kUserCount = 4
 
 func main() {
 
@@ -22,7 +22,7 @@ func main() {
     var allUserName = Array<String>()
     var allUserRecipe = Array<Int>()
 
-    for doCount in 0..<userCount {
+    for doCount in 0..<kUserCount {
         let (userName, recipeId) = getStdIn()
         allUserName.append(userName)
         allUserRecipe.append(recipeId)
@@ -75,7 +75,7 @@ func makeRecipesDicWithRecipesArray(recipesArray: [String]) -> [Int: String] {
 func printAllUserRecipe(allUserName: Array<String>, allUserRecipe: Array<Int>, recipesDict: Dictionary<Int, String>) {
     println("---------------------------")
     
-    for i in 0..<userCount {
+    for i in 0..<kUserCount {
         let userName = allUserName[i]
         let recipeId = allUserRecipe[i]
         
@@ -85,7 +85,7 @@ func printAllUserRecipe(allUserName: Array<String>, allUserRecipe: Array<Int>, r
                 println("\(i): " + recipesDict[i]!)
             }
         } else {
-            println(recipesDict[recipeId] ?? "Not Found")
+            println("\(recipeId): \(recipesDict[recipeId]!)" ?? "Not Found")
         }
         
         println("---------------------------")
