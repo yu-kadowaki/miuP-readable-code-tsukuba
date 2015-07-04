@@ -11,15 +11,29 @@ import Foundation
 func main() {
 
     //TODO: input your file path
-    let yourFilePath = "recipe-data.txt"
+    let yourFilePath = "/Users/Illya/develop/miuP-readable-code-tsukuba/reabable-code-tsukuba/reabable-code-tsukuba/recipe-data.txt"
 
     let contentsOfFile = fileOpenWithPath(yourFilePath)
     let recipesArray = splitLine(contentsOfFile)
+    let recipesDict = makeRecipesDicWithRecipesArray(recipesArray)
 
-    for recipe in recipesArray {
-        println(recipe)
+    let input = getIntByStdIn()
+    if input == 0 {
+        for (var i = 1; i <= count(recipesDict); i++) {
+            println("\(i): " + recipesDict[i]!)
+        }
+    } else {
+        println(recipesDict[input] ?? "Not Found")
     }
+}
 
+func getIntByStdIn() -> Int {
+    let input = NSFileHandle.fileHandleWithStandardInput()
+    let str = NSString(data: input.availableData, encoding: NSUTF8StringEncoding)
+    let scanner = NSScanner(string: str! as String)
+    var value: Int = 0
+    let result = scanner.scanInteger(&value)
+    return value
 }
 
 func fileOpenWithPath(path: String) -> String {
@@ -29,6 +43,15 @@ func fileOpenWithPath(path: String) -> String {
 
 func splitLine(str: String) -> [String] {
     return split(str) { contains("\n", $0) }
+}
+
+func makeRecipesDicWithRecipesArray(recipesArray: [String]) -> [Int: String] {
+    var recipesDict: [Int: String] = [:]
+    for (var i = 0; i < count(recipesArray); i++) {
+        let id = i + 1
+        recipesDict[id] = recipesArray[i]
+    }
+    return recipesDict
 }
 
 main()
